@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+        <div class="flex flex-col">
+            <form action="/add_product" method="POST" class="space-x-4 mt-4 items-center justify-center">
+                {{ form.csrf_token }}
+                <div class="m-2">
+                    {{ form.nombre.label(class="text-gray-700") }}
+                    {{ form.nombre(class="border border-gray-300 rounded px-2 py-1 w-full") }}
+                    {% if form.nombre.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {{ form.nombre.errors[0] }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="m-2">
+
+                    {{ form.precio.label(class="text-gray-700") }}
+                    {{ form.precio(class="border border-gray-300 rounded px-2 py-1 w-full") }}
+                    {% if form.precio.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {{ form.precio.errors[0] }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="m-2">
+                    {{ form.cantidad.label(class="text-gray-700") }}
+                    {{ form.cantidad(class="border border-gray-300 rounded px-2 py-1 w-full") }}
+                    {% if form.cantidad.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {{ form.cantidad.errors[0] }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="m-2">
+                    {{ form.categoria.label(class="text-gray-700") }}
+                    {{ form.categoria(class="border border-gray-300 rounded px-2 py-1 w-full") }}
+                    {% if form.categoria.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {{ form.categoria.errors[0] }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="m-2">
+                    
+                    {{ form.submit(class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-full") }}  
+                </div>
+        </div>
+{% endblock %}

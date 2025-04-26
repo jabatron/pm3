@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-4 rounded relative" role="alert">
+                    <span class="block sm:inline">{{ message }}</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+        <div class="flex flex-col">
+            <form action="{{ back_to }}" method="POST" class="space-x-4 mt-4 items-center justify-center">
+                {{ form.csrf_token }}
+                <div class="m-2">
+                    {{ form.id.label(class="text-gray-700") }}
+                    {{ form.id(class="border border-gray-300 rounded px-2 py-1 w-full") }}
+                    {% if form.id.errors %}
+                        <div class="text-red-500 text-sm mt-1">
+                            {{ form.nombre.errors[0] }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+
+                <div class="m-2">
+                    {{ form.submit(value= boton, class=class_boton) }}  
+                </div>
+        </div>
+{% endblock %}

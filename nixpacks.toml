@@ -1,4 +1,4 @@
 providers = ['python']
 
 [start]
-cmd = "gunicorn main:run --bind 0.0.0.0:8000"
+cmd = "gunicorn run:app --bind 0.0.0.0:8000"
